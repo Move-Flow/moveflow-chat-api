@@ -1,16 +1,31 @@
 # API Interface
 
-- base url: https://chat.moveflow.xyz/
+- base url: 
+
+    https://moveflow-ai-api-backend.vercel.app/
+
+    or
+
+    https://chat.moveflow.xyz/
 
  
 ### Request Sarah@StreamingAI Chat Botxhjb
 #### Request
 - Method: **POST**
 - URL:  
-    - :  ```https://chat.moveflow.xyz/api/sarah```
+    - :  ```https://moveflow-ai-api-backend.vercel.app/api/sarah```
 - Params
     account: string, default: '0x' 
     msg: string, default: 'hello' 
+
+
+```json
+
+{
+    "account": "0x1234",                       
+    "msg": "hello "
+}
+```
 
 #### Response:
 
@@ -27,10 +42,19 @@
 #### Request
 - Method: **POST**
 - URL:  
-    - :  ```https://chat.moveflow.xyz/api/jimmy```
+    - :  ```https://moveflow-ai-api-backend.vercel.app/api/jimmy```
 - Params
     account: string, default: '0x' 
     msg: string, default: 'hello' 
+
+ex: 
+```json
+
+{
+    "account": "0x1234",                       
+    "msg": "hello "
+}
+```
 
 #### Response:
 
