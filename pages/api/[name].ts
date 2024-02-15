@@ -5,7 +5,8 @@ import { runMiddleware, cors } from './cors_middleware'
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: process.env.APIKEY
+  // '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',
 });
 
 const threadByAccount: any = {};                                                   // Store thread IDs by user
