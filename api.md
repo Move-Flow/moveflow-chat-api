@@ -7,7 +7,7 @@
 #### Request
 - Method: **POST**
 - URL:  
-    - :  ```https://chat.moveflow.xyz/api/sarah```
+    - :  ```https://chat.moveflow.xyz/api/chat/sarah```
 - Params
     account: string, default: '0x' 
     msg: string, default: 'hello' 

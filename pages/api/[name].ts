@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { runMiddleware, cors } from '../cors_middleware'
+import { runMiddleware, cors } from './cors_middleware'
 
 
 const OpenAI = require("openai");
