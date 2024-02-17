@@ -279,7 +279,7 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
 
     } else {
       res.status(500).json({ error: 'chat name only support sarah or jimmy . ' });
-      res.status(200).json({ result });
+      // res.status(200).json({ result });
     }
 
     
