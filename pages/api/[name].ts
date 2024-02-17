@@ -72,15 +72,15 @@ async function payment_chat(account: string, msg: string): Promise<{ _msg: any, 
 
     console.log("This is the message object: ", message, "\n");
 
- 
+
     const _my_run = await openai.beta.threads.runs.create(
-      threadByAccount[account],                                       
+      threadByAccount[account],
       {
 
         assistant_id: assistantIdToUse,
         instructions: instructions,
         tools: [
-          { type: "code_interpreter" },                     
+          { type: "code_interpreter" },
         ],
       }
     );
@@ -167,7 +167,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
   // const msg = req.query.msg;
 
 
-  
+
   await check_account(account);
 
 
@@ -188,7 +188,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
       {
 
         assistant_id: assistantIdToUse,
-        instructions: instructions, 
+        instructions: instructions,
         tools: [
           { type: "code_interpreter" },
         ],
@@ -242,56 +242,56 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
 
   const { method } = req
   console.log('method', method)
-  switch (method) {
-    // 获取地址
-    case 'POST':
-      try {
-        const { body, query } = req
-        let result;
-        console.log('body:', body)
+  // switch (method) {
+  // 获取地址
+  // case 'POST':
+  try {
+    const { body, query } = req
+    let result;
+    console.log('body:', body)
 
-        let { account, msg } = body
-        let _name: String = query.name as string;
-        console.log('_name:', _name, ', msg', msg)
-        if (_name == 'sarah') {
+    let { account, msg } = body
+    let _name: String = query.name as string;
+    console.log('_name:', _name, ', msg', msg)
+    if (_name == 'sarah') {
 
-          let _res = await payment_chat(account, msg);
+      let _res = await payment_chat(account, msg);
 
-          if (_res._status != 200) {
-            res.status(_res._status).json({ error: _res._msg })
-          }
-
-          res.status(200).json({ result: _res._msg });
-
-        } else if (_name == 'jimmy') {
-
-
-          let _res = await subscription_chat(account, msg);
-
-          if (_res._status != 200) {
-            res.status(_res._status).json({ error: _res._msg })
-          }
-
-          res.status(200).json({ result: _res._msg });
-
-
-        } else {
-          res.status(500).json({ error: 'chat name only support sarah or jimmy . ' });
-        }
-
-        res.status(200).json({
-          result
-        });
-      } catch (ex) {
-        res.status(500).json({ error: (ex as any).message });
+      if (_res._status != 200) {
+        res.status(_res._status).json({ error: _res._msg })
       }
-      break;
 
-    default:
-      res.setHeader('Allow', ['GET', 'POST'])
-      res.status(405).end(`Method ${method} Not Allowed`);
-      break;
+      res.status(200).json({ result: _res._msg });
+
+    } else if (_name == 'jimmy') {
+
+
+      let _res = await subscription_chat(account, msg);
+
+      if (_res._status != 200) {
+        res.status(_res._status).json({ error: _res._msg })
+      }
+
+      res.status(200).json({ result: _res._msg });
+
+
+    } else {
+      res.status(500).json({ error: 'chat name only support sarah or jimmy . ' });
+    }
+
+    res.status(200).json({
+      result
+    });
+  } catch (ex) {
+    res.status(500).json({ error: (ex as any).message });
   }
+  //   break;
+
+  // default:
+  //   res.setHeader('Allow', ['GET', 'POST'])
+  //   res.status(405).end(`Method ${method} Not Allowed`);
+  //   break;
+  // }
 
   res.end();
 
