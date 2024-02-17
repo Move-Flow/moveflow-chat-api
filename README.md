@@ -4,10 +4,6 @@
 
     https://moveflow-ai-api-backend.vercel.app/
 
-    or
-
-    https://chat.moveflow.xyz/
-
  
 ### Request Sarah@StreamingAI Chat Botxhjb
 #### Request
