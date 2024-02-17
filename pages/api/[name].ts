@@ -262,7 +262,6 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
 
           res.status(200).json({ result: _res._msg });
 
-
         } else if (_name == 'jimmy') {
 
 
@@ -291,4 +290,7 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
       res.setHeader('Allow', ['GET', 'PUT', 'POST', 'DELETE'])
       res.status(405).end(`Method ${method} Not Allowed`)
   }
+
+  res.end();
+
 }
