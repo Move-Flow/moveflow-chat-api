@@ -57,7 +57,7 @@ async function payment_chat(account: string, msg: string): Promise<{ _msg: any, 
   
   """`
 
-  check_account(account);
+  await check_account(account);
 
   // Add a Message to the Thread
   try {
@@ -168,7 +168,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
 
 
   
-  check_account(account);
+  await check_account(account);
 
 
   // Add a Message to the Thread
@@ -202,6 +202,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
       while (_my_run.status !== "completed") {
 
         const threadId = threadByAccount[account];
+        console.log('threadId,:', threadId)
         keepRetrievingRun = await openai.beta.threads.runs.retrieve(threadId, _my_run.id);
 
         console.log(`Run status: ${keepRetrievingRun.status}`);
@@ -246,11 +247,11 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
       try {
         const { body, query } = req
         let result;
+        console.log('body:', body)
 
-        let { account, msg } = JSON.parse(body)
-        console.log('body:', body, ', account, msg:', account, msg)
+        let { account, msg } = body
         let _name: String = query.name as string;
-
+        console.log('_name:', _name, ', msg', msg)
         if (_name == 'sarah') {
 
           let _res = await payment_chat(account, msg);
