@@ -53,8 +53,6 @@ async function payment_chat(account: string, msg: string): Promise<{ _msg: any, 
       "token_amount_per_time": 4, // Number of tokens per payment, only required when the stream rate is enabled.
       "time_interval": "second" // Time interval of payment, only required when the stream rate is enabled. Limited to second/minute/hour/day/month.
   }
-  
-  
   """`
 
   await check_account(account);
@@ -258,10 +256,12 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
       let _res = await payment_chat(account, msg);
 
       if (_res._status != 200) {
-        res.status(_res._status).json({ error: _res._msg });
+        res.status(200).json({ error: _res._msg });
+      } else {
+        res.status(200).json({ result: _res._msg });
+
       }
 
-      res.status(200).json({ result: _res._msg });
 
     } else if (_name == 'jimmy') {
 
@@ -271,17 +271,18 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
       if (_res._status != 200) {
         res.status(_res._status).json({ error: _res._msg })
       }
+      else {
+        res.status(200).json({ result: _res._msg });
 
-      res.status(200).json({ result: _res._msg });
-
+      }
+      // res.status(200).json({ result: _res._msg });
 
     } else {
       res.status(500).json({ error: 'chat name only support sarah or jimmy . ' });
+      res.status(200).json({ result });
     }
 
-    res.status(200).json({
-      result
-    });
+    
   } catch (ex) {
     res.status(500).json({ error: (ex as any).message });
   }
@@ -293,6 +294,6 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
   //   break;
   // }
 
-  res.end();
+  // res.end();
 
 }

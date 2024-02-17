@@ -5,7 +5,7 @@ import Cors from 'cors';
 export const cors = Cors({
     origin: '*',
     allowedHeaders: "*",
-    methods: "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    methods: "*"
 })
 
 export function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: Function) {
