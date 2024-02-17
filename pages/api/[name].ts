@@ -241,6 +241,7 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
   await runMiddleware(req, res, cors)
 
   const { method } = req
+  console.log('method', method)
   switch (method) {
     // 获取地址
     case 'POST':
@@ -287,7 +288,7 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
       break
 
     default:
-      res.setHeader('Allow', ['GET', 'PUT', 'POST', 'DELETE'])
+      res.setHeader('Allow', ['GET', 'POST'])
       res.status(405).end(`Method ${method} Not Allowed`)
   }
 
