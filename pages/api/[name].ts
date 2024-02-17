@@ -104,7 +104,7 @@ async function payment_chat(account: string, msg: string): Promise<{ _msg: any, 
       }
     };
 
-    retrieveRun();
+    await retrieveRun();
 
     const waitForAssistantMessage = async () => {
       await retrieveRun();
@@ -119,7 +119,7 @@ async function payment_chat(account: string, msg: string): Promise<{ _msg: any, 
       }
     };
 
-    return waitForAssistantMessage();
+    return await waitForAssistantMessage();
   } catch (error) {
     console.error("Error:", error);
     // res.status(500).json({ error: "Internal server error" });
@@ -214,7 +214,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
       }
     };
 
-    retrieveRun();
+    await retrieveRun();
 
     const waitForAssistantMessage = async () => {
       await retrieveRun();
@@ -225,7 +225,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
       }
     };
 
-    return waitForAssistantMessage();
+    return  await waitForAssistantMessage();
   } catch (error) {
     console.error("Error:", error);
     return { _status: 500, _msg: 'Internal server error' }
@@ -258,7 +258,7 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
       let _res = await payment_chat(account, msg);
 
       if (_res._status != 200) {
-        res.status(_res._status).json({ error: _res._msg })
+        res.status(_res._status).json({ error: _res._msg });
       }
 
       res.status(200).json({ result: _res._msg });
