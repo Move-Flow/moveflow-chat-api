@@ -285,11 +285,12 @@ export default async function index(req: NextApiRequest, res: NextApiResponse<an
       } catch (ex) {
         res.status(500).json({ error: (ex as any).message });
       }
-      break
+      break;
 
     default:
       res.setHeader('Allow', ['GET', 'POST'])
-      res.status(405).end(`Method ${method} Not Allowed`)
+      res.status(405).end(`Method ${method} Not Allowed`);
+      break;
   }
 
   res.end();
