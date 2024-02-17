@@ -5,7 +5,7 @@ import { runMiddleware, cors } from './cors_middleware'
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-  apiKey: process.env.APIKEY
+  apiKey: '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',// process.env.APIKEY
   // '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',
 });
 
