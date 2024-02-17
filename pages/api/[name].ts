@@ -24,9 +24,10 @@ async function check_account(account: string) {
   }
 }
 
+// sarah
 async function payment_chat(account: string, msg: string): Promise<{ _msg: any, _status: number }> {
 
-  const assistantIdToUse = "asst_8sZgaFjfTD4aHB7o1IOlkNER";               // Replace with your assistant ID
+  const assistantIdToUse = "asst_FruTYw2fIqjH03ybXJTUoq0d";               // Replace with your assistant ID
   const instructions = `SYSTEM_PROMPT = """
   You are stream payment expert and operator for web3 and crypto, good at understanding users' intention and grasp information exactly from your conversation.
   
@@ -128,9 +129,10 @@ async function payment_chat(account: string, msg: string): Promise<{ _msg: any, 
 
 }
 
+// jimmy
 async function subscription_chat(account: string, msg: string): Promise<{ _msg: any, _status: number }> {
 
-  const assistantIdToUse = "asst_AjZBoZJUkehjcYey8cWs89A4";               // Replace with your assistant ID
+  const assistantIdToUse = "asst_q7h02i7cgwbQ9oifXtSFMyyi";               // Replace with your assistant ID
   const instructions = `SYSTEM_PROMPT = """
   You are finance expert and operator for MoveFlow, you are good at generating monthly financial report for crypto companies, and you will let users subscribe for your financial report services.
   
