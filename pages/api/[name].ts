@@ -153,7 +153,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
       "Token": "USDT",
       “Sender": Troy,
       "Receiver": Jimmy (0x65e6b348769D62397eC3aa485519Cbf1aB3eCfcF),
-      "start_time": "2024/1/1 00:00:00",
+      "start_time": "2024/3/1 00:00:00",
       "end_time": "2024/12/1 00:00:00",
       "number_of_time": 12,
       "token_amount_per_time": 0.01,
