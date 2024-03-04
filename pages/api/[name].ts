@@ -105,7 +105,7 @@ async function payment_chat(account: string, msg: string): Promise<{ _msg: any, 
     await retrieveRun();
 
     const waitForAssistantMessage = async () => {
-      await retrieveRun();
+      // await retrieveRun();
 
       const allMessages = await openai.beta.threads.messages.list(
         threadByAccount[account] // Use the stored thread ID for this user
