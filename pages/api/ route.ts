@@ -1,2 +1,2 @@
 // export const runtime = 'nodejs';
-export const maxDuration = 25;
+// export const maxDuration = 60;
