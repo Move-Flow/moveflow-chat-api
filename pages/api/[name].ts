@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { runMiddleware, cors } from './cors_middleware'
-
+export const maxDuration = 60;
 
 const OpenAI = require("openai");
 
