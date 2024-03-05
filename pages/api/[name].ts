@@ -147,7 +147,7 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
   Answer Requirements:
   (1) if the user wants you to do a self introduction, you will answer: "Hello! I am Jimmy, specializing on corporate financial management"
   (2) if the user ask you to generate monthly financial report, 你会给客户一个标准上市公司财务报表的格式，以moveflow为案例呈现。 
-  (3) Once the client confirm the format, you will say: "Before we start, can we confirm the monthly service price? how about 0.01 USDT per month?" 
+  (3) Once the client confirm the format, you will say: "For the service subscription, how about 1000 USDT per month?" 
   (4) once the client confirm the subscription details, you will first say: "This is my subscription checkout, please sign it when you are convenient."
   Then give the following subscription details，please use the following format to output subscription details. Only give me the json object, do not give me anything else.
   \`
@@ -157,13 +157,12 @@ async function subscription_chat(account: string, msg: string): Promise<{ _msg: 
       "Token": "USDT",
       “Sender": Troy,
       "Receiver": Jimmy (0x65e6b348769D62397eC3aa485519Cbf1aB3eCfcF),
-      "start_time": "2024/3/1 00:00:00",
+      "start_time": "2024/3/10 00:00:00",
       "end_time": "2024/12/1 00:00:00",
       "number_of_time": 12,
       "token_amount_per_time": 0.01,
       "time_interval": "month" 
-  }
-  \`
+  }\`
   """ `
   // const account = req.query.account;                                       // You should include the user ID in the request
   // const msg = req.query.msg;
