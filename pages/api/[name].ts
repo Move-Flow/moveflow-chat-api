@@ -3,7 +3,7 @@ import { runMiddleware, cors } from './cors_middleware'
 // export const maxDuration = 60;
 
 export const config = {
-  maxDuration: 60,
+  maxDuration: 120,
 };
 
 const OpenAI = require("openai");
