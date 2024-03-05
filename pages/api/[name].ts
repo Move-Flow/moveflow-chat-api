@@ -9,7 +9,7 @@ export const config = {
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-  apiKey: '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',// process.env.APIKEY
+  apiKey: process.env.APIKEY
   // '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',
 });
 
